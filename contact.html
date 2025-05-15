@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Brokers Mutual Financial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f4ff',
+                            100: '#e0e9fe',
+                            200: '#c7d7fe',
+                            300: '#a4bcfd',
+                            400: '#8098fa',
+                            500: '#6172f3',
+                            600: '#0665ff',
+                            700: '#3a43cd',
+                            800: '#3039a5',
+                            900: '#2d3483',
+                        },
+                        secondary: {
+                            50: '#f6f7f9',
+                            100: '#e8ebf0',
+                            200: '#d5dbe5',
+                            300: '#b5c0d2',
+                            400: '#8f9fba',
+                            500: '#7282a5',
+                            600: '#5c6a8b',
+                            700: '#4a5571',
+                            800: '#40495e',
+                            900: '#393f51',
+                        },
+                        accent: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .contact-hero {
+            background: linear-gradient(rgba(16, 24, 40, 0.9), rgba(16, 24, 40, 0.9)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .contact-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1);
+            color: var(--primary-600);
+        }
+        
+        .form-input:focus {
+            border-color: var(--primary-500);
+            box-shadow: 0 0 0 3px rgba(97, 114, 243, 0.2);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-toggle.active .faq-content {
+            max-height: 300px;
+        }
+        
+        .faq-toggle.active i {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-secondary-50 text-secondary-900">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center text-2xl font-bold">
+                    <img src="./assets/logo.webp" alt="logo" class="h-12">
+                    
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <nav>
+                        <ul class="flex space-x-8">
+                            <li><a href="index.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">Home</a></li>
+                            <li><a href="about.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">About</a></li>
+                            <li><a href="apply.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">Apply</a></li>
+                            <li><a href="join.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">Join Us</a></li>
+                            <!-- <li><a href="contact.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">Contact</a></li> -->
+                        </ul>
+                    </nav>
+                    <!-- <a href="#" class="bg-primary-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-primary-700 transition shadow-md hover:shadow-lg">Login</a> -->
+                    <a href="#" class="bg-primary-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-primary-700 transition shadow-md hover:shadow-lg">Contact</a>
+                </div>
+                
+                <button class="md:hidden text-2xl focus:outline-none text-secondary-600" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden py-4" id="mobile-menu">
+                <nav>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">Home</a></li>
+                        <li><a href="about.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">About</a></li>
+                        <li><a href="apply.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">Apply</a></li>
+                        <li><a href="join.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">Join Us</a></li>
+                        <li><a href="contact.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">Contact</a></li>
+                        <li><a href="#" class="block bg-primary-600 text-white px-6 py-2 rounded-lg font-medium text-center hover:bg-primary-700 transition shadow-md">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="contact-hero text-white py-24 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">Contact Our Financial Experts</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto text-secondary-200">Have questions about our services or need financial advice? Reach out to our team of certified professionals.</p>
+        </div>
+    </section>
+
+    <!-- Contact Options -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Contact Card 1 -->
+                <div class="contact-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 border border-gray-100">
+                    <div class="contact-icon w-16 h-16 bg-primary-50 text-primary-600 rounded-lg flex items-center justify-center text-2xl mb-6 mx-auto">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Phone Support</h3>
+                    <p class="text-secondary-600 text-center mb-4">Speak directly with a financial advisor during business hours.</p>
+                    <div class="text-center">
+                        <a href="tel:+18001234567" class="text-primary-600 font-semibold hover:text-primary-800 transition">+1 (800) 123-4567</a>
+                        <p class="text-sm text-secondary-500 mt-1">Mon-Fri, 9am-5pm EST</p>
+                    </div>
+                </div>
+                
+                <!-- Contact Card 2 -->
+                <div class="contact-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 border border-gray-100">
+                    <div class="contact-icon w-16 h-16 bg-primary-50 text-primary-600 rounded-lg flex items-center justify-center text-2xl mb-6 mx-auto">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Email Us</h3>
+                    <p class="text-secondary-600 text-center mb-4">Send us your questions and we'll respond within 24 hours.</p>
+                    <div class="text-center">
+                        <a href="mailto:info@Brokers Mutual.com" class="text-primary-600 font-semibold hover:text-primary-800 transition">info@Brokers Mutual.com</a>
+                        <p class="text-sm text-secondary-500 mt-1">General inquiries</p>
+                    </div>
+                </div>
+                
+                <!-- Contact Card 3 -->
+                <div class="contact-card bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 border border-gray-100">
+                    <div class="contact-icon w-16 h-16 bg-primary-50 text-primary-600 rounded-lg flex items-center justify-center text-2xl mb-6 mx-auto">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Visit Us</h3>
+                    <p class="text-secondary-600 text-center mb-4">Schedule an in-person consultation at our headquarters.</p>
+                    <div class="text-center">
+                        <p class="text-secondary-700">123 Financial District</p>
+                        <p class="text-secondary-700">New York, NY 10005</p>
+                        <a href="#" class="text-primary-600 text-sm font-semibold hover:text-primary-800 transition mt-2 inline-block">Get Directions →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-primary-600 text-white p-8 md:p-12">
+                        <h2 class="text-2xl font-bold mb-4">Get Personalized Financial Advice</h2>
+                        <p class="mb-6 text-primary-100">Fill out the form and one of our financial experts will contact you within 24 hours to discuss your needs.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-user-tie mt-1 mr-4 text-primary-300"></i>
+                                <div>
+                                    <h4 class="font-bold">Certified Advisors</h4>
+                                    <p class="text-primary-200 text-sm">All our consultants are certified financial planners.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-lock mt-1 mr-4 text-primary-300"></i>
+                                <div>
+                                    <h4 class="font-bold">Secure Communication</h4>
+                                    <p class="text-primary-200 text-sm">Your information is protected with bank-level encryption.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-handshake mt-1 mr-4 text-primary-300"></i>
+                                <div>
+                                    <h4 class="font-bold">No Obligation</h4>
+                                    <p class="text-primary-200 text-sm">Initial consultations are completely free with no commitment.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-8 md:p-12">
+                        <h3 class="text-xl font-bold mb-6 text-secondary-900">Send Us a Message</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-secondary-700 font-medium mb-2">Full Name</label>
+                                <input type="text" id="name" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="John Smith" required>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="email" class="block text-secondary-700 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="john@example.com" required>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="phone" class="block text-secondary-700 font-medium mb-2">Phone Number</label>
+                                <input type="tel" id="phone" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="(123) 456-7890">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="service" class="block text-secondary-700 font-medium mb-2">Service Interested In</label>
+                                <select id="service" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                                    <option value="">Select a service</option>
+                                    <option value="investment">Investment Planning</option>
+                                    <option value="retirement">Retirement Solutions</option>
+                                    <option value="wealth">Wealth Management</option>
+                                    <option value="tax">Tax Optimization</option>
+                                    <option value="estate">Estate Planning</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="message" class="block text-secondary-700 font-medium mb-2">Your Message</label>
+                                <textarea id="message" rows="4" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Tell us about your financial goals..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary-600 text-white py-3 px-6 rounded-lg font-bold hover:bg-primary-700 transition shadow-md hover:shadow-lg">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-secondary-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary-50 text-primary-600 px-4 py-1 rounded-full text-sm font-medium mb-4">FAQs</span>
+                <h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-secondary-600 max-w-2xl mx-auto">Find answers to common questions about our financial services.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- FAQ Item 1 -->
+                <div class="mb-4 border-b border-gray-200 pb-4">
+                    <button class="faq-toggle flex justify-between items-center w-full text-left font-medium text-secondary-800 hover:text-primary-600 focus:outline-none">
+                        <span>What is the minimum investment required to work with Brokers Mutual?</span>
+                        <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-2 text-secondary-600">
+                        <p>We work with clients at all investment levels. Our basic financial planning services start with no minimum investment requirement, while our premium wealth management services typically require a minimum portfolio of $100,000. We believe in accessible financial advice for everyone.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="mb-4 border-b border-gray-200 pb-4">
+                    <button class="faq-toggle flex justify-between items-center w-full text-left font-medium text-secondary-800 hover:text-primary-600 focus:outline-none">
+                        <span>How are your financial advisors compensated?</span>
+                        <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-2 text-secondary-600">
+                        <p>We operate on a fee-only basis, which means we don't earn commissions from selling financial products. Our compensation comes directly from our clients through transparent fees based on assets under management or fixed planning fees. This aligns our interests with yours.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="mb-4 border-b border-gray-200 pb-4">
+                    <button class="faq-toggle flex justify-between items-center w-full text-left font-medium text-secondary-800 hover:text-primary-600 focus:outline-none">
+                        <span>What makes Brokers Mutual different from other financial firms?</span>
+                        <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-2 text-secondary-600">
+                        <p>Our approach combines cutting-edge technology with personalized service. We use advanced analytics to optimize your portfolio while maintaining a human touch with dedicated advisors who understand your unique goals. Plus, our flat-fee structure eliminates conflicts of interest common in commission-based models.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="mb-4 border-b border-gray-200 pb-4">
+                    <button class="faq-toggle flex justify-between items-center w-full text-left font-medium text-secondary-800 hover:text-primary-600 focus:outline-none">
+                        <span>How often will I meet with my financial advisor?</span>
+                        <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-2 text-secondary-600">
+                        <p>We typically schedule quarterly check-ins, but the frequency can be adjusted based on your needs. Between meetings, you'll have 24/7 access to your portfolio through our client portal and can schedule additional consultations as needed. We're always available when important financial decisions arise.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="mb-4 border-b border-gray-200 pb-4">
+                    <button class="faq-toggle flex justify-between items-center w-full text-left font-medium text-secondary-800 hover:text-primary-600 focus:outline-none">
+                        <span>Is my personal and financial information secure with Brokers Mutual?</span>
+                        <i class="fas fa-chevron-down text-primary-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content mt-2 text-secondary-600">
+                        <p>Absolutely. We use bank-level 256-bit encryption for all data transmissions and storage. Our systems undergo regular security audits, and we adhere to strict privacy policies. Your information is never shared with third parties without your explicit consent, except as required by law.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-primary-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">Ready to Start Your Financial Journey?</h2>
+            <p class="text-lg max-w-2xl mx-auto mb-8 text-primary-100">Schedule a free consultation with one of our financial experts today.</p>
+            <a href="#" class="inline-block bg-white text-primary-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition transform hover:-translate-y-1 shadow-lg hover:shadow-xl">Book a Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- Column 1 -->
+                <div>
+                    <div class="flex items-center text-2xl font-bold mb-6">
+                        <i class="fas fa-chart-line mr-2 text-primary-400"></i>
+                        <span>Brokers Mutual</span>
+                    </div>
+                    <p class="mb-6 text-secondary-300">Innovative financial solutions to help you grow, protect, and enjoy your wealth.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-secondary-700 rounded-full flex items-center justify-center hover:bg-primary-600 transition text-secondary-300 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-secondary-700 rounded-full flex items-center justify-center hover:bg-primary-600 transition text-secondary-300 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-secondary-700 rounded-full flex items-center justify-center hover:bg-primary-600 transition text-secondary-300 hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-secondary-700 rounded-full flex items-center justify-center hover:bg-primary-600 transition text-secondary-300 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 pb-2 border-b border-secondary-700">
+                        Services
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Investment Planning</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Retirement Solutions</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Wealth Management</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Tax Optimization</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Estate Planning</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 pb-2 border-b border-secondary-700">
+                        Company
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">About Us</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Our Team</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Careers</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Press</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 pb-2 border-b border-secondary-700">
+                        Contact
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-secondary-300">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary-400"></i>
+                            <span>123 Financial District, New York, NY 10005</span>
+                        </li>
+                        <li class="flex items-center text-secondary-300">
+                            <i class="fas fa-phone mr-3 text-primary-400"></i>
+                            <span>(800) 123-4567</span>
+                        </li>
+                        <li class="flex items-center text-secondary-300">
+                            <i class="fas fa-envelope mr-3 text-primary-400"></i>
+                            <span>info@Brokers Mutual.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-6 border-t border-secondary-800 text-center text-secondary-400 text-sm">
+                <p>&copy; 2023 Brokers Mutual. All rights reserved. | <a href="#" class="hover:text-primary-400 transition">Privacy Policy</a> | <a href="#" class="hover:text-primary-400 transition">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/contactPage.js"></script>
+</body>
+</html>

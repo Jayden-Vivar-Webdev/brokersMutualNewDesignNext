@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Services | Brokers Mutual Financial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f4ff',
+                            100: '#e0e9fe',
+                            200: '#c7d7fe',
+                            300: '#a4bcfd',
+                            400: '#8098fa',
+                            500: '#6172f3',
+                            600: '#155dfc',
+                            700: '#3a43cd',
+                            800: '#3039a5',
+                            900: '#2d3483',
+                        },
+                        secondary: {
+                            50: '#f6f7f9',
+                            100: '#e8ebf0',
+                            200: '#d5dbe5',
+                            300: '#b5c0d2',
+                            400: '#8f9fba',
+                            500: '#7282a5',
+                            600: '#5c6a8b',
+                            700: '#4a5571',
+                            800: '#40495e',
+                            900: '#393f51',
+                        },
+                        accent: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .apply-hero {
+            background: linear-gradient(rgba(16, 24, 40, 0.9), rgba(16, 24, 40, 0.9)), url('https://images.unsplash.com/photo-1601597111158-2fceff292cdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .step {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: var(--primary-500);
+            box-shadow: 0 0 0 3px rgba(97, 114, 243, 0.2);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background-color: #e0e9fe;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: #6172f3;
+            transition: width 0.5s ease;
+        }
+        
+        .scroller__inner {
+            animation: scroll 20s linear infinite;
+            width: max-content;
+        }
+        
+        @keyframes scroll {
+            to {
+                transform: translate(calc(-50% - 1rem));
+            }
+        }
+    </style>
+</head>
+<body class="bg-secondary-50 text-secondary-900">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center text-2xl font-bold">
+                    <img src="./assets/logo.webp" alt="logo" class="h-12">
+                    
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <nav>
+                        <ul class="flex space-x-8">
+                            <li><a href="index.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">Home</a></li>
+                            <li><a href="about.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">About</a></li>
+                            <li><a href="apply.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">Apply</a></li>
+                            <li><a href="join.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">Join Us</a></li>
+                            <!-- <li><a href="contact.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">Contact</a></li> -->
+                        </ul>
+                    </nav>
+                    <!-- <a href="#" class="bg-primary-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-primary-700 transition shadow-md hover:shadow-lg">Login</a> -->
+                    <a href="#" class="bg-primary-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-primary-700 transition shadow-md hover:shadow-lg">Contact</a>
+                </div>
+                
+                <button class="md:hidden text-2xl focus:outline-none text-secondary-600" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden py-4" id="mobile-menu">
+                <nav>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">Home</a></li>
+                        <li><a href="about.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">About</a></li>
+                        <li><a href="apply.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">Apply</a></li>
+                        <li><a href="join.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">Join Us</a></li>
+                        <li><a href="contact.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">Contact</a></li>
+                        <li><a href="#" class="block bg-primary-600 text-white px-6 py-2 rounded-lg font-medium text-center hover:bg-primary-700 transition shadow-md">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="apply-hero text-white py-24 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">Apply for Financial Services</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto text-secondary-200">Complete our simple application form and one of our financial advisors will contact you shortly.</p>
+        </div>
+    </section>
+
+    <!-- Mobile Description -->
+    <section class="md:hidden bg-primary-600 text-white text-center py-6 px-4">
+        <p class="text-sm">Complete our simple application form and one of our financial advisors will contact you shortly.</p>
+    </section>
+
+    <!-- Application Form Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                <!-- Progress Bar -->
+                <div class="progress-bar">
+                    <div class="progress" id="progress-bar" style="width: 10%"></div>
+                </div>
+                
+                <div class="p-8 md:p-12">
+                    <!-- Step 1: Service Selection -->
+                    <form id="step1" class="step">
+                        <h2 class="text-3xl font-bold text-center text-secondary-800 mb-8">Welcome to Brokers Mutual</h2>
+                        <p class="text-center text-secondary-600 mb-8">Let's get started with your application</p>
+                        
+                        <h3 class="text-2xl font-semibold text-secondary-700 mb-6">What service are you interested in?</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                            <button type="button" class="w-full px-6 py-4 border border-gray-200 rounded-lg hover:border-primary-500 transition text-left" onclick="nextStep('step1', 'step2')">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-primary-50 text-primary-600 rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <span>Investment Planning</span>
+                                </div>
+                            </button>
+                            <button type="button" class="w-full px-6 py-4 border border-gray-200 rounded-lg hover:border-primary-500 transition text-left" onclick="nextStep('step1', 'step2')">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-primary-50 text-primary-600 rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fas fa-piggy-bank"></i>
+                                    </div>
+                                    <span>Retirement Solutions</span>
+                                </div>
+                            </button>
+                            <button type="button" class="w-full px-6 py-4 border border-gray-200 rounded-lg hover:border-primary-500 transition text-left" onclick="nextStep('step1', 'step2')">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-primary-50 text-primary-600 rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                    <span>Wealth Management</span>
+                                </div>
+                            </button>
+                            <button type="button" class="w-full px-6 py-4 border border-gray-200 rounded-lg hover:border-primary-500 transition text-left" onclick="nextStep('step1', 'step2')">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-primary-50 text-primary-600 rounded-lg flex items-center justify-center mr-4">
+                                        <i class="fas fa-home"></i>
+                                    </div>
+                                    <span>Estate Planning</span>
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Step 2: Financial Goals -->
+                    <form id="step2" class="step hidden">
+                        <h3 class="text-2xl font-semibold text-secondary-700 mb-6">What are your primary financial goals?</h3>
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center">
+                                <input type="checkbox" id="goal1" class="form-checkbox h-5 w-5 text-primary-600 rounded focus:ring-primary-500 border-gray-300">
+                                <label for="goal1" class="ml-2 text-secondary-700">Wealth accumulation</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="goal2" class="form-checkbox h-5 w-5 text-primary-600 rounded focus:ring-primary-500 border-gray-300">
+                                <label for="goal2" class="ml-2 text-secondary-700">Retirement planning</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="goal3" class="form-checkbox h-5 w-5 text-primary-600 rounded focus:ring-primary-500 border-gray-300">
+                                <label for="goal3" class="ml-2 text-secondary-700">Tax optimization</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="goal4" class="form-checkbox h-5 w-5 text-primary-600 rounded focus:ring-primary-500 border-gray-300">
+                                <label for="goal4" class="ml-2 text-secondary-700">Education funding</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="goal5" class="form-checkbox h-5 w-5 text-primary-600 rounded focus:ring-primary-500 border-gray-300">
+                                <label for="goal5" class="ml-2 text-secondary-700">Estate planning</label>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button type="button" class="px-6 py-3 border border-gray-300 rounded-lg text-secondary-700 hover:bg-gray-50 transition" onclick="backStep('step2', 'step1')">Back</button>
+                            <button type="button" class="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition" onclick="nextStep('step2', 'step3')">Next</button>
+                        </div>
+                    </form>
+
+                    <!-- Step 3: Financial Situation -->
+                    <form id="step3" class="step hidden">
+                        <h3 class="text-2xl font-semibold text-secondary-700 mb-6">Tell us about your current financial situation</h3>
+                        
+                        <div class="mb-6">
+                            <label for="income" class="block text-secondary-700 font-medium mb-2">Annual Income</label>
+                            <select id="income" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500" required>
+                                <option value="" disabled selected>Select your income range</option>
+                                <option value="1">Less than $50,000</option>
+                                <option value="2">$50,000 - $100,000</option>
+                                <option value="3">$100,000 - $200,000</option>
+                                <option value="4">$200,000 - $500,000</option>
+                                <option value="5">More than $500,000</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="assets" class="block text-secondary-700 font-medium mb-2">Total Assets</label>
+                            <select id="assets" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500" required>
+                                <option value="" disabled selected>Select your assets range</option>
+                                <option value="1">Less than $100,000</option>
+                                <option value="2">$100,000 - $500,000</option>
+                                <option value="3">$500,000 - $1,000,000</option>
+                                <option value="4">$1,000,000 - $5,000,000</option>
+                                <option value="5">More than $5,000,000</option>
+                            </select>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button type="button" class="px-6 py-3 border border-gray-300 rounded-lg text-secondary-700 hover:bg-gray-50 transition" onclick="backStep('step3', 'step2')">Back</button>
+                            <button type="button" class="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition" onclick="nextStep('step3', 'step4')">Next</button>
+                        </div>
+                    </form>
+
+                    <!-- Step 4: Investment Preferences -->
+                    <form id="step4" class="step hidden">
+                        <h3 class="text-2xl font-semibold text-secondary-700 mb-6">What is your investment risk tolerance?</h3>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center">
+                                <input type="radio" id="risk1" name="risk" value="conservative" class="form-radio h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300">
+                                <label for="risk1" class="ml-2 text-secondary-700">Conservative (low risk)</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="risk2" name="risk" value="moderate" class="form-radio h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300">
+                                <label for="risk2" class="ml-2 text-secondary-700">Moderate (balanced risk/reward)</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="risk3" name="risk" value="aggressive" class="form-radio h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300">
+                                <label for="risk3" class="ml-2 text-secondary-700">Aggressive (high risk, high reward)</label>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button type="button" class="px-6 py-3 border border-gray-300 rounded-lg text-secondary-700 hover:bg-gray-50 transition" onclick="backStep('step4', 'step3')">Back</button>
+                            <button type="button" class="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition" onclick="nextStep('step4', 'step5')">Next</button>
+                        </div>
+                    </form>
+
+                    <!-- Step 5: Personal Information -->
+                    <form id="step5" class="step hidden">
+                        <h3 class="text-2xl font-semibold text-secondary-700 mb-6">Tell us about yourself</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="first-name" class="block text-secondary-700 font-medium mb-2">First Name</label>
+                                <input type="text" id="first-name" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500" required>
+                            </div>
+                            <div>
+                                <label for="last-name" class="block text-secondary-700 font-medium mb-2">Last Name</label>
+                                <input type="text" id="last-name" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-secondary-700 font-medium mb-2">Email Address</label>
+                            <input type="email" id="email" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500" required>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="phone" class="block text-secondary-700 font-medium mb-2">Phone Number</label>
+                            <input type="tel" id="phone" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500" required>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button type="button" class="px-6 py-3 border border-gray-300 rounded-lg text-secondary-700 hover:bg-gray-50 transition" onclick="backStep('step5', 'step4')">Back</button>
+                            <button type="button" class="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition" onclick="nextStep('step5', 'step6')">Next</button>
+                        </div>
+                    </form>
+
+                    <!-- Step 6: Review and Submit -->
+                    <div id="step6" class="step hidden">
+                        <h3 class="text-2xl font-semibold text-secondary-700 mb-6">Review Your Information</h3>
+                        
+                        <div class="bg-secondary-50 p-6 rounded-lg mb-8">
+                            <h4 class="font-bold text-secondary-700 mb-4">Application Summary</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-secondary-600">Service:</span>
+                                    <span class="font-medium" id="review-service">Investment Planning</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-secondary-600">Financial Goals:</span>
+                                    <span class="font-medium" id="review-goals">Wealth accumulation, Retirement planning</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-secondary-600">Annual Income:</span>
+                                    <span class="font-medium" id="review-income">$100,000 - $200,000</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-secondary-600">Risk Tolerance:</span>
+                                    <span class="font-medium" id="review-risk">Moderate</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex items-start">
+                                <input type="checkbox" id="consent" class="form-checkbox h-5 w-5 text-primary-600 rounded focus:ring-primary-500 border-gray-300 mt-1" required>
+                                <label for="consent" class="ml-2 text-secondary-700">I consent to Brokers Mutual contacting me about financial services and agree to the <a href="#" class="text-primary-600 hover:underline">Privacy Policy</a>.</label>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button type="button" class="px-6 py-3 border border-gray-300 rounded-lg text-secondary-700 hover:bg-gray-50 transition" onclick="backStep('step6', 'step5')">Back</button>
+                            <button type="submit" class="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition">Submit Application</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 7: Confirmation -->
+                    <div id="step7" class="step hidden text-center">
+                        <div class="w-20 h-20 bg-primary-50 text-primary-600 rounded-full flex items-center justify-center text-3xl mb-6 mx-auto">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-secondary-700 mb-4">Application Submitted Successfully!</h3>
+                        <p class="text-secondary-600 mb-8">Thank you for your application. One of our financial advisors will contact you within 24 hours to discuss your needs.</p>
+                        <a href="index.html" class="inline-block px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition">Return to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Network Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-secondary-800 mb-12">Our Trusted Financial Network</h2>
+            
+            <div class="relative overflow-hidden">
+                <div class="scroller" data-direction="right">
+                    <div class="scroller__inner flex space-x-5">
+                        <img src="../assets/ls-1.png" alt="lender-icons" class="w-[63rem] h-auto object-contain">
+                        <img src="../assets/ls-2.png" alt="lender-icons" class="w-[63rem] h-auto object-contain">
+                        <img src="../assets/ls-3.png" alt="lender-icons" class="w-[63rem] h-auto object-contain">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- Column 1 -->
+                <div>
+                    <div class="flex items-center text-2xl font-bold mb-6">
+                        <i class="fas fa-chart-line mr-2 text-primary-400"></i>
+                        <span>Brokers Mutual</span>
+                    </div>
+                    <p class="mb-6 text-secondary-300">Innovative financial solutions to help you grow, protect, and enjoy your wealth.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-secondary-700 rounded-full flex items-center justify-center hover:bg-primary-600 transition text-secondary-300 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-secondary-700 rounded-full flex items-center justify-center hover:bg-primary-600 transition text-secondary-300 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-secondary-700 rounded-full flex items-center justify-center hover:bg-primary-600 transition text-secondary-300 hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-secondary-700 rounded-full flex items-center justify-center hover:bg-primary-600 transition text-secondary-300 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 pb-2 border-b border-secondary-700">
+                        Services
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Investment Planning</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Retirement Solutions</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Wealth Management</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Tax Optimization</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Estate Planning</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 pb-2 border-b border-secondary-700">
+                        Company
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">About Us</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Our Team</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Careers</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Press</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 pb-2 border-b border-secondary-700">
+                        Contact
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-secondary-300">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary-400"></i>
+                            <span>123 Financial District, New York, NY 10005</span>
+                        </li>
+                        <li class="flex items-center text-secondary-300">
+                            <i class="fas fa-phone mr-3 text-primary-400"></i>
+                            <span>(800) 123-4567</span>
+                        </li>
+                        <li class="flex items-center text-secondary-300">
+                            <i class="fas fa-envelope mr-3 text-primary-400"></i>
+                            <span>info@Brokers Mutual.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-6 border-t border-secondary-800 text-center text-secondary-400 text-sm">
+                <p>&copy; 2023 Brokers Mutual. All rights reserved. | <a href="#" class="hover:text-primary-400 transition">Privacy Policy</a> | <a href="#" class="hover:text-primary-400 transition">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+
+    <script src="js/applyForm.js"></script>
+    <script src="./js/scroller.js"></script>
+</body>
+</html>

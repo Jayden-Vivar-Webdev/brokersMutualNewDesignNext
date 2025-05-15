@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Brokers Mutual | Premium Financial Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f4ff',
+                            100: '#e0e9fe',
+                            200: '#c7d7fe',
+                            300: '#a4bcfd',
+                            400: '#8098fa',
+                            500: '#6172f3',
+                            600: '#155dfc',
+                            700: '#3a43cd',
+                            800: '#3039a5',
+                            900: '#2d3483',
+                        },
+                        secondary: {
+                            50: '#f6f7f9',
+                            100: '#e8ebf0',
+                            200: '#d5dbe5',
+                            300: '#b5c0d2',
+                            400: '#8f9fba',
+                            500: '#7282a5',
+                            600: '#5c6a8b',
+                            700: '#4a5571',
+                            800: '#40495e',
+                            900: '#393f51',
+                        },
+                        accent: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(4, 32, 88, 0.499), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .cta-bg {
+            background: linear-gradient(rgba(16, 24, 40, 0.9), rgba(16, 24, 40, 0.9)), url('https://images.unsplash.com/photo-1601597111158-2fceff292cdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+        
+        .testimonial-slide {
+            display: none;
+        }
+        
+        .testimonial-slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-secondary-50 text-secondary-900">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center text-2xl font-bold">
+                    <img src="./assets/logo.webp" alt="logo" class="h-12">
+                    
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <nav>
+                        <ul class="flex space-x-8">
+                            <li><a href="index.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">Home</a></li>
+                            <li><a href="about.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">About</a></li>
+                            <li><a href="apply.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">Apply</a></li>
+                            <li><a href="join.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">Join Us</a></li>
+                            <!-- <li><a href="contact.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">Contact</a></li> -->
+                        </ul>
+                    </nav>
+                    <!-- <a href="#" class="bg-primary-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-primary-700 transition shadow-md hover:shadow-lg">Login</a> -->
+                    <a href="#" class="bg-primary-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-primary-700 transition shadow-md hover:shadow-lg">Contact</a>
+                </div>
+                
+                <button class="md:hidden text-2xl focus:outline-none text-secondary-600" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden py-4" id="mobile-menu">
+                <nav>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">Home</a></li>
+                        <li><a href="about.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">About</a></li>
+                        <li><a href="apply.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">Apply</a></li>
+                        <li><a href="join.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">Join Us</a></li>
+                        <li><a href="contact.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">Contact</a></li>
+                        <li><a href="#" class="block bg-primary-600 text-white px-6 py-2 rounded-lg font-medium text-center hover:bg-primary-700 transition shadow-md">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-24 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">Our Story, Mission, and Values</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto mb-10 text-secondary-200">For over 25 years, Brokers Mutual has been helping clients achieve financial security through innovative solutions and personalized service.</p>
+            <a href="#our-team" class="inline-block bg-primary-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-primary-700 transition transform hover:-translate-y-1 shadow-lg hover:shadow-xl">Meet Our Team</a>
+        </div>
+    </section>
+
+    <!-- About Intro -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <span class="inline-block bg-primary-50 text-primary-600 px-4 py-1 rounded-full text-sm font-medium mb-4">About Brokers Mutual</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Trusted Financial Partners Since 1997</h2>
+                    <p class="text-secondary-600 mb-6">Brokers Mutual was founded on the principle that everyone deserves access to sophisticated financial planning, regardless of their net worth. What began as a small advisory firm in New York has grown into a nationally recognized wealth management company serving clients across the country.</p>
+                    <p class="text-secondary-600 mb-8">Our independence allows us to provide truly objective advice, free from the conflicts of interest that can arise at larger institutions. We're proud to be fiduciaries, legally bound to act in our clients' best interests at all times.</p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-3xl font-bold text-primary-600 mb-2">25+</h3>
+                            <p class="text-secondary-600">Years in Business</p>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold text-primary-600 mb-2">150+</h3>
+                            <p class="text-secondary-600">Financial Experts</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1011&q=80" alt="Brokers Mutual team meeting" class="w-full rounded-xl shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission -->
+    <section class="py-20 bg-secondary-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-primary-50 text-primary-600 px-4 py-1 rounded-full text-sm font-medium mb-4">Our Purpose</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Mission & Vision</h2>
+                <p class="text-secondary-600 max-w-2xl mx-auto">Guiding principles that shape every decision we make</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div class="w-14 h-14 bg-primary-50 text-primary-600 rounded-lg flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Our Mission</h3>
+                    <p class="text-secondary-600">To empower individuals and families to achieve financial freedom through comprehensive planning, innovative investment strategies, and exceptional personalized service. We believe in building lasting relationships based on trust, transparency, and outstanding results.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div class="w-14 h-14 bg-primary-50 text-primary-600 rounded-lg flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Our Vision</h3>
+                    <p class="text-secondary-600">To redefine wealth management by combining cutting-edge technology with human expertise, making sophisticated financial planning accessible to all. We envision a world where everyone can make informed financial decisions with confidence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-primary-50 text-primary-600 px-4 py-1 rounded-full text-sm font-medium mb-4">Our Culture</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Core Values</h2>
+                <p class="text-secondary-600 max-w-2xl mx-auto">The foundation of everything we do</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="values-card bg-white p-6 rounded-xl shadow-md border border-gray-100 transition duration-300 hover:shadow-lg">
+                    <div class="w-12 h-12 bg-primary-50 text-primary-600 rounded-lg flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Integrity</h3>
+                    <p class="text-secondary-600 text-sm">We adhere to the highest ethical standards, providing honest advice even when it's not the easiest path.</p>
+                </div>
+                
+                <div class="values-card bg-white p-6 rounded-xl shadow-md border border-gray-100 transition duration-300 hover:shadow-lg">
+                    <div class="w-12 h-12 bg-primary-50 text-primary-600 rounded-lg flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Innovation</h3>
+                    <p class="text-secondary-600 text-sm">We continuously evolve our strategies to leverage the latest financial research and technological advancements.</p>
+                </div>
+                
+                <div class="values-card bg-white p-6 rounded-xl shadow-md border border-gray-100 transition duration-300 hover:shadow-lg">
+                    <div class="w-12 h-12 bg-primary-50 text-primary-600 rounded-lg flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Client Focus</h3>
+                    <p class="text-secondary-600 text-sm">Your success is our success. We listen first, then craft solutions tailored to your unique situation.</p>
+                </div>
+                
+                <div class="values-card bg-white p-6 rounded-xl shadow-md border border-gray-100 transition duration-300 hover:shadow-lg">
+                    <div class="w-12 h-12 bg-primary-50 text-primary-600 rounded-lg flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-chart-network"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Excellence</h3>
+                    <p class="text-secondary-600 text-sm">We pursue mastery in our craft, combining deep expertise with meticulous attention to detail.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our History -->
+    <section class="relative bg-[url('https://realbusiness.co.uk/wp-content/uploads/2021/07/shutterstock_574879378-scaled.jpg')] bg-cover bg-center text-white py-20">
+        <div class="absolute inset-0 bg-black opacity-80"></div>
+        <div class="container mx-auto px-4">
+            <div class="relative text-center mb-16 z-10 text-white">
+                <span class="inline-block bg-primary-600 text-white px-4 py-1 rounded-full text-sm font-medium mb-4">Our Journey</span>
+                <h2 class="text-3xl  md:text-4xl font-bold mb-4">Our History</h2>
+                <p class="text-secondary-200 max-w-2xl mx-auto">Milestones in our journey to becoming a trusted financial partner</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto relative pl-8">
+                <!-- Timeline line -->
+                <div class="absolute left-0 top-0 h-full w-0.5 bg-primary-400"></div>
+                
+                <!-- Timeline Item 1 -->
+                <div class="relative mb-12 timeline-item pl-8">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl border border-white border-opacity-20">
+                        <h3 class="text-xl font-bold mb-2">1997 - Founding</h3>
+                        <p class="text-secondary-200 mb-2">Brokers Mutual is founded by Robert Langley in New York with a vision to democratize access to high-quality financial advice.</p>
+                        <span class="text-sm text-primary-300">June 15, 1997</span>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 2 -->
+                <div class="relative mb-12 timeline-item pl-8">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl border border-white border-opacity-20">
+                        <h3 class="text-xl font-bold mb-2">2005 - First Expansion</h3>
+                        <p class="text-secondary-200 mb-2">We open our second office in Chicago and expand our team to 25 financial professionals.</p>
+                        <span class="text-sm text-primary-300">March 3, 2005</span>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 3 -->
+                <div class="relative mb-12 timeline-item pl-8">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl border border-white border-opacity-20">
+                        <h3 class="text-xl font-bold mb-2">2012 - Digital Platform</h3>
+                        <p class="text-secondary-200 mb-2">Launch of our proprietary digital platform, allowing clients to access their portfolios anytime, anywhere.</p>
+                        <span class="text-sm text-primary-300">October 22, 2012</span>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 4 -->
+                <div class="relative mb-12 timeline-item pl-8">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl border border-white border-opacity-20">
+                        <h3 class="text-xl font-bold mb-2">2020 - National Recognition</h3>
+                        <p class="text-secondary-200 mb-2">Named "Best Wealth Management Firm" by Financial Times for our innovative approach and client satisfaction.</p>
+                        <span class="text-sm text-primary-300">January 8, 2020</span>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 5 -->
+                <div class="relative timeline-item pl-8">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-xl border border-white border-opacity-20">
+                        <h3 class="text-xl font-bold mb-2">2023 - Today</h3>
+                        <p class="text-secondary-200 mb-2">Serving over 10,000 clients nationwide with $5B+ in assets under management across 8 offices.</p>
+                        <span class="text-sm text-primary-300">Present</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team -->
+    <section class="py-20 bg-secondary-50" id="our-team">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-primary-50 text-primary-600 px-4 py-1 rounded-full text-sm font-medium mb-4">Our People</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Meet Our Leadership Team</h2>
+                <p class="text-secondary-600 max-w-2xl mx-auto">Seasoned professionals with decades of combined experience</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="team-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300 border border-gray-100">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80" alt="Robert Langley" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">Robert Langley</h3>
+                        <p class="text-primary-600 mb-3">Founder & CEO</p>
+                        <p class="text-secondary-600 text-sm mb-4">30+ years in wealth management. Harvard MBA. Passionate about financial education.</p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-secondary-400 hover:text-primary-600 transition"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-secondary-400 hover:text-primary-600 transition"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300 border border-gray-100">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80" alt="Sarah Chen" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">Sarah Chen</h3>
+                        <p class="text-primary-600 mb-3">Chief Investment Officer</p>
+                        <p class="text-secondary-600 text-sm mb-4">Former hedge fund manager. Expert in global markets and alternative investments.</p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-secondary-400 hover:text-primary-600 transition"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-secondary-400 hover:text-primary-600 transition"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300 border border-gray-100">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Michael Rodriguez" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">Michael Rodriguez</h3>
+                        <p class="text-primary-600 mb-3">Chief Technology Officer</p>
+                        <p class="text-secondary-600 text-sm mb-4">Fintech innovator. Leads our digital transformation and security initiatives.</p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-secondary-400 hover:text-primary-600 transition"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-secondary-400 hover:text-primary-600 transition"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="team-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300 border border-gray-100">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=1061&q=80" alt="Emily Johnson" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">Emily Johnson</h3>
+                        <p class="text-primary-600 mb-3">Client Relations Director</p>
+                        <p class="text-secondary-600 text-sm mb-4">15 years ensuring exceptional client experiences. Your advocate within our firm.</p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-secondary-400 hover:text-primary-600 transition"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-secondary-400 hover:text-primary-600 transition"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="team.html" class="inline-flex items-center text-primary-600 font-semibold hover:text-primary-800 transition group">
+                    View Full Team <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-primary-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Experience the Brokers Mutual Difference?</h2>
+            <p class="text-lg max-w-3xl mx-auto mb-10 text-secondary-200">Schedule a complimentary consultation with one of our financial experts today.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="contact.html" class="bg-white text-primary-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition transform hover:-translate-y-1 shadow-lg hover:shadow-xl">Contact Us</a>
+                <a href="tel:+18001234567" class="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-primary-600 transition transform hover:-translate-y-1">
+                    <i class="fas fa-phone mr-2"></i> (800) 123-4567
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- Column 1 -->
+                <div>
+                    <div class="flex items-center text-2xl font-bold mb-6">
+                        <i class="fas fa-chart-line mr-2 text-primary-400"></i>
+                        <span>Brokers Mutual</span>
+                    </div>
+                    <p class="mb-6 text-secondary-300">Innovative financial solutions to help you grow, protect, and enjoy your wealth.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-secondary-700 rounded-full flex items-center justify-center hover:bg-primary-600 transition text-secondary-300 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-secondary-700 rounded-full flex items-center justify-center hover:bg-primary-600 transition text-secondary-300 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-secondary-700 rounded-full flex items-center justify-center hover:bg-primary-600 transition text-secondary-300 hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-secondary-700 rounded-full flex items-center justify-center hover:bg-primary-600 transition text-secondary-300 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 pb-2 border-b border-secondary-700">
+                        Services
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Investment Planning</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Retirement Solutions</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Wealth Management</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Tax Optimization</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Estate Planning</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 pb-2 border-b border-secondary-700">
+                        Company
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-secondary-300 hover:text-primary-400 transition">About Us</a></li>
+                        <li><a href="team.html" class="text-secondary-300 hover:text-primary-400 transition">Our Team</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Careers</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Press</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 pb-2 border-b border-secondary-700">
+                        Contact
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-secondary-300">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary-400"></i>
+                            <span>123 Financial District, New York, NY 10005</span>
+                        </li>
+                        <li class="flex items-center text-secondary-300">
+                            <i class="fas fa-phone mr-3 text-primary-400"></i>
+                            <span>(800) 123-4567</span>
+                        </li>
+                        <li class="flex items-center text-secondary-300">
+                            <i class="fas fa-envelope mr-3 text-primary-400"></i>
+                            <span>info@Brokers Mutual.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-6 border-t border-secondary-800 text-center text-secondary-400 text-sm">
+                <p>&copy; 2023 Brokers Mutual. All rights reserved. | <a href="#" class="hover:text-primary-400 transition">Privacy Policy</a> | <a href="#" class="hover:text-primary-400 transition">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+       
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if(this.getAttribute('href') === '#') return;
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if(!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        const icon = mobileMenuButton.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.team-card, .values-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animation
+        document.querySelectorAll('.team-card, .values-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

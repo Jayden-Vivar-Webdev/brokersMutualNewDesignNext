@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brokers Mutual | Premium Financial Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f4ff',
+                            100: '#e0e9fe',
+                            200: '#c7d7fe',
+                            300: '#a4bcfd',
+                            400: '#8098fa',
+                            500: '#6172f3',
+                            600: '#155dfc',
+                            700: '#3a43cd',
+                            800: '#3039a5',
+                            900: '#2d3483',
+                        },
+                        secondary: {
+                            50: '#f6f7f9',
+                            100: '#e8ebf0',
+                            200: '#d5dbe5',
+                            300: '#b5c0d2',
+                            400: '#8f9fba',
+                            500: '#7282a5',
+                            600: '#5c6a8b',
+                            700: '#4a5571',
+                            800: '#40495e',
+                            900: '#393f51',
+                        },
+                        accent: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(4, 32, 88, 0.499), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .cta-bg {
+            background: linear-gradient(rgba(16, 24, 40, 0.9), rgba(16, 24, 40, 0.9)), url('https://images.unsplash.com/photo-1601597111158-2fceff292cdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+        
+        .testimonial-slide {
+            display: none;
+        }
+        
+        .testimonial-slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-secondary-50 text-secondary-900">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center text-2xl font-bold">
+                    <img src="./assets/logo.webp" alt="logo" class="h-12">
+                    <span class="text-secondary-900"></span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <nav>
+                        <ul class="flex space-x-8">
+                            <li><a href="index.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">Home</a></li>
+                            <li><a href="about.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">About</a></li>
+                            <li><a href="apply.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">Apply</a></li>
+                            <li><a href="join.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">Join Us</a></li>
+                            <!-- <li><a href="contact.html" class="nav-link relative pb-1 text-secondary-600 hover:text-primary-600 transition">Contact</a></li> -->
+                        </ul>
+                    </nav>
+                    <!-- <a href="#" class="bg-primary-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-primary-700 transition shadow-md hover:shadow-lg">Login</a> -->
+                    <a href="#" class="bg-primary-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-primary-700 transition shadow-md hover:shadow-lg">Contact</a>
+                  </div>
+                
+                <button class="md:hidden text-2xl focus:outline-none text-secondary-600" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden py-4" id="mobile-menu">
+                <nav>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">Home</a></li>
+                        <li><a href="about.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">About</a></li>
+                        <li><a href="apply.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">Apply</a></li>
+                        <li><a href="join.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">Join Us</a></li>
+                        <li><a href="contact.html" class="block hover:text-primary-600 px-3 py-2 rounded-lg transition text-secondary-600">Contact</a></li>
+                        <li><a href="#" class="block bg-primary-600 text-white px-6 py-2 rounded-lg font-medium text-center hover:bg-primary-700 transition shadow-md">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-slate-900 relative overflow-hidden" id="home">
+        <!-- Subtle grid pattern overlay -->
+        <div class="absolute inset-0 opacity-5">
+          <div class="h-full w-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDYwIEwgNjAgNjAiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41Ii8+PHBhdGggZD0iTSA2MCAwIEwgMCAwIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjAuNSIvPjxwYXRoIGQ9Ik0gMCAwIEwgNjAgNjAiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41Ii8+PHBhdGggZD0iTSA2MCAwIEwgMCA2MCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiIC8+PC9zdmc+')]"></div>
+        </div>
+        
+        <!-- Accent color bar -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-blue-800"></div>
+        
+        <div class="container mx-auto px-6 lg:px-8 py-16 md:py-24 lg:py-32">
+          <div class="grid lg:grid-cols-5 gap-12 items-center">
+            <!-- Text Content: Takes up 3/5 of the space -->
+            <div class="lg:col-span-3">
+              <div class="max-w-3xl">
+                <div class="flex items-center mb-6">
+                  <div class="h-px bg-blue-600 w-12 mr-4"></div>
+                  <span class="text-blue-500 font-medium tracking-wider text-sm uppercase">Financial Excellence</span>
+                </div>
+                
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">Allow Brokers Mutual To Help You Choose the right loan</h1>
+                
+                <p class="text-lg text-slate-300 mb-8 leading-relaxed">Our comprehensive financial services are designed to assist our clients, enhance borrowing capabilities, and secure the best interest rates.</p>
+                
+                <div class="flex flex-wrap gap-4 mb-8">
+                  <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-blue-600/20 flex items-center justify-center mr-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                    <span class="text-slate-200">Expert Financial Advisory</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-blue-600/20 flex items-center justify-center mr-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                    <span class="text-slate-200">Risk Management</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-blue-600/20 flex items-center justify-center mr-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                    <span class="text-slate-200">Strategic Planning</span>
+                  </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4 ">
+                  <a href="#" class="z-50 px-6 py-3 bg-blue-600 text-white font-medium rounded hover:bg-blue-700 transition duration-300 text-center">
+                    Schedule Consultation
+                  </a>
+                  <a href="#" class="z-50 px-6 py-3 border border-slate-600 text-slate-200 font-medium rounded hover:border-blue-500 hover:text-blue-400 transition duration-300 text-center">
+                    Explore Services
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Chart/Graph Visual: Takes up 2/5 of the space -->
+            <div class="lg:col-span-2 relative">
+              <div class="bg-slate-800 border border-slate-700 rounded-lg shadow-xl p-4 md:p-6">
+                <div class="flex justify-between items-center mb-6">
+                  <h3 class="text-slate-200 font-medium">Personal Loans</h3>
+                  <div class="flex space-x-2">
+                    <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-slate-500"></div>
+                  </div>
+                </div>
+                
+                <!-- Simplified chart representation -->
+                <div class="relative h-64">
+                  <!-- Chart background grid -->
+                  <div class="absolute inset-0 grid grid-cols-4 grid-rows-4">
+                    <div class="border-b border-r border-slate-700"></div>
+                    <div class="border-b border-r border-slate-700"></div>
+                    <div class="border-b border-r border-slate-700"></div>
+                    <div class="border-b border-slate-700"></div>
+                    <div class="border-b border-r border-slate-700"></div>
+                    <div class="border-b border-r border-slate-700"></div>
+                    <div class="border-b border-r border-slate-700"></div>
+                    <div class="border-b border-slate-700"></div>
+                    <div class="border-b border-r border-slate-700"></div>
+                    <div class="border-b border-r border-slate-700"></div>
+                    <div class="border-b border-r border-slate-700"></div>
+                    <div class="border-b border-slate-700"></div>
+                    <div class="border-r border-slate-700"></div>
+                    <div class="border-r border-slate-700"></div>
+                    <div class="border-r border-slate-700"></div>
+                    <div class=""></div>
+                  </div>
+                  
+                  <!-- Line chart -->
+                  <div class="absolute bottom-0 left-0 right-0 h-full">
+                    <!-- Blue line (main) -->
+                    <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                      <path d="M0,80 Q25,70 33,40 T50,35 T66,45 T75,30 T100,10" stroke="rgb(37, 99, 235)" stroke-width="2" fill="none" />
+                      <path d="M0,80 Q25,70 33,40 T50,35 T66,45 T75,30 T100,10 V100 H0 Z" fill="rgb(37, 99, 235)" fill-opacity="0.1" />
+                    </svg>
+                    
+                    <!-- Grey line (benchmark) -->
+                    <svg class="w-full h-full absolute top-0 left-0" viewBox="0 0 100 100" preserveAspectRatio="none">
+                      <path d="M0,70 Q20,65 40,60 T60,55 T80,60 T100,50" stroke="rgb(100, 116, 139)" stroke-width="2" stroke-dasharray="4 4" fill="none" />
+                    </svg>
+                  </div>
+                  
+                  <!-- Labels -->
+                  <div class="absolute bottom-0 left-0 right-0 flex justify-between text-xs text-slate-400">
+                    <span>Q1</span>
+                    <span>Q2</span>
+                    <span>Q3</span>
+                    <span>Q4</span>
+                  </div>
+                </div>
+                
+                <div class="flex justify-between items-center mt-6 text-sm">
+                  <div class="flex items-center">
+                    <div class="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
+                    <span class="text-slate-300">Loans Success</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="w-3 h-3 bg-slate-500 rounded-full mr-2"></div>
+                    <span class="text-slate-300">Other Lenders</span>
+                  </div>
+                  <div class="text-blue-500 font-medium">+12.6%</div>
+                </div>
+              </div>
+              
+              <!-- Small positioned decoration elements -->
+              <div class="absolute -top-3 -right-3 w-24 h-24 bg-blue-500 rounded-full opacity-10 blur-xl"></div>
+              <div class="absolute -bottom-6 -left-6 w-16 h-16 bg-blue-600 rounded-full opacity-10 blur-lg"></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Bottom border accent -->
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-800 via-blue-700 to-slate-800"></div>
+      </section>
+
+    <!-- Features Section -->
+    <section class="relative py-16 md:py-24 bg-slate-50" id="features">
+        <!-- Subtle grid pattern overlay -->
+        <div class="absolute inset-0 opacity-5">
+          <div class="h-full w-full bg-slate-900"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 lg:px-8">
+          <div class="max-w-3xl mx-auto text-center mb-16">
+            <div class="flex items-center justify-center mb-6">
+              <div class="h-px bg-blue-600 w-8 mr-4"></div>
+              <span class="text-blue-600 font-medium tracking-wider text-sm uppercase">Our Advantages</span>
+              <div class="h-px bg-blue-600 w-8 ml-4"></div>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-5">Strategic Advantages with Brokers Mutual</h2>
+            <p class="text-slate-600 leading-relaxed">Our comprehensive suite of financial services is designed to provide superior client outcomes through innovation, expertise, and dedication to excellence.</p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <!-- Feature 1 -->
+            <div class="bg-white border border-slate-200 rounded-lg shadow-md transition duration-300 hover:shadow-lg group z-10">
+              <div class="p-6 md:p-8">
+                <div class="flex items-start mb-5">
+                  <div class="w-12 h-12 bg-blue-600/10 text-blue-600 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-slate-800">Enterprise-Grade Security</h3>
+                </div>
+                <p class="text-slate-600 leading-relaxed">Advanced encryption protocols and multi-layered authentication systems ensure your financial assets and data remain protected at all times.</p>
+                <div class="mt-5 pt-5 border-t border-slate-100">
+                  <span class="text-blue-600 font-medium text-sm flex items-center group-hover:translate-x-2 transition-transform duration-300">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="bg-white border border-slate-200 rounded-lg shadow-md transition duration-300 hover:shadow-lg group z-10">
+              <div class="p-6 md:p-8">
+                <div class="flex items-start mb-5">
+                  <div class="w-12 h-12 bg-blue-600/10 text-blue-600 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-slate-800">Predictive Analytics</h3>
+                </div>
+                <p class="text-slate-600 leading-relaxed">Sophisticated algorithms process market data to deliver actionable intelligence and forecast trends with precision-guided investment recommendations.</p>
+                <div class="mt-5 pt-5 border-t border-slate-100">
+                  <span class="text-blue-600 font-medium text-sm flex items-center group-hover:translate-x-2 transition-transform duration-300">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="bg-white border border-slate-200 rounded-lg shadow-md transition duration-300 hover:shadow-lg group z-10">
+              <div class="p-6 md:p-8">
+                <div class="flex items-start mb-5">
+                  <div class="w-12 h-12 bg-blue-600/10 text-blue-600 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-slate-800">Transparent Fee Structure</h3>
+                </div>
+                <p class="text-slate-600 leading-relaxed">Optimize your return on investment with our competitive fee structure designed to maximize value while minimizing unnecessary expenses.</p>
+                <div class="mt-5 pt-5 border-t border-slate-100">
+                  <span class="text-blue-600 font-medium text-sm flex items-center group-hover:translate-x-2 transition-transform duration-300">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Feature 4 -->
+            <div class="bg-white border border-slate-200 rounded-lg shadow-md transition duration-300 hover:shadow-lg group z-10">
+              <div class="p-6 md:p-8">
+                <div class="flex items-start mb-5">
+                  <div class="w-12 h-12 bg-blue-600/10 text-blue-600 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-slate-800">Enterprise Mobile Platform</h3>
+                </div>
+                <p class="text-slate-600 leading-relaxed">Access comprehensive portfolio management tools through our intuitive mobile interface, enabling real-time decision making from anywhere.</p>
+                <div class="mt-5 pt-5 border-t border-slate-100">
+                  <span class="text-blue-600 font-medium text-sm flex items-center group-hover:translate-x-2 transition-transform duration-300">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Feature 5 -->
+            <div class="bg-white border border-slate-200 rounded-lg shadow-md transition duration-300 hover:shadow-lg group z-10">
+              <div class="p-6 md:p-8">
+                <div class="flex items-start mb-5">
+                  <div class="w-12 h-12 bg-blue-600/10 text-blue-600 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-slate-800">Dedicated Advisory Team</h3>
+                </div>
+                <p class="text-slate-600 leading-relaxed">Gain access to certified financial strategists with sector-specific expertise who provide personalized guidance tailored to your business objectives.</p>
+                <div class="mt-5 pt-5 border-t border-slate-100">
+                  <span class="text-blue-600 font-medium text-sm flex items-center group-hover:translate-x-2 transition-transform duration-300">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Feature 6 -->
+            <div class="bg-white border border-slate-200 rounded-lg shadow-md transition duration-300 hover:shadow-lg group z-10">
+              <div class="p-6 md:p-8">
+                <div class="flex items-start mb-5">
+                  <div class="w-12 h-12 bg-blue-600/10 text-blue-600 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-slate-800">Global Market Access</h3>
+                </div>
+                <p class="text-slate-600 leading-relaxed">Leverage our international network and strategic partnerships to access diverse markets and investment opportunities across multiple jurisdictions.</p>
+                <div class="mt-5 pt-5 border-t border-slate-100">
+                  <span class="text-blue-600 font-medium text-sm flex items-center group-hover:translate-x-2 transition-transform duration-300">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- CTA Banner -->
+          <div class="mt-16 bg-gradient-to-r from-slate-800 to-slate-900 rounded-lg shadow-xl overflow-hidden">
+            <div class="relative p-8 md:p-10">
+              <!-- Background accent -->
+              <div class="absolute top-0 right-0 w-1/2 h-full opacity-10">
+                <svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M39.3,-68.1C52.1,-64.5,64.7,-55.8,73.2,-43.8C81.8,-31.8,86.3,-15.9,83.9,-1.4C81.5,13.1,72.2,26.2,61.9,36.6C51.6,46.9,39.2,54.5,26.7,59.6C14.2,64.7,1.5,67.1,-12.8,68.4C-27.1,69.7,-42.1,69.9,-53,63.3C-63.9,56.7,-70.7,43.3,-73.4,29.5C-76.1,15.8,-74.7,1.7,-71.8,-11.5C-68.9,-24.6,-64.4,-36.8,-56,-48.3C-47.6,-59.8,-35.3,-70.5,-21.9,-73.1C-8.6,-75.7,5.8,-70.1,19.7,-66C33.6,-61.9,46.9,-59.2,59.7,-51.9Z" transform="translate(200 200)" fill="currentColor"/>
+                </svg>
+              </div>
+              
+              <div class="md:flex items-center justify-between relative z-10">
+                <div class="md:w-2/3 mb-6 md:mb-0">
+                  <h3 class="text-2xl font-bold text-white mb-2">Ready to optimize your financial strategy?</h3>
+                  <p class="text-slate-300">Schedule a consultation with our expert advisors to develop a tailored approach for your business needs.</p>
+                </div>
+                <div>
+                  <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded transition duration-300">
+                    Request Consultation
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- Services Section -->
+<section class="relative py-16 md:py-24 bg-white" id="services">
+    <!-- Subtle grid pattern overlay -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="h-full w-full bg-slate-100"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <div class="flex items-center justify-center mb-6">
+          <div class="h-px bg-blue-600 w-8 mr-4"></div>
+          <span class="text-blue-600 font-medium tracking-wider text-sm uppercase">Premium Services</span>
+          <div class="h-px bg-blue-600 w-8 ml-4"></div>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-5">Comprehensive Financial Solutions</h2>
+        <p class="text-slate-600 leading-relaxed">Our tailored financial services are designed to optimize your wealth management strategy and drive sustainable growth for your business and personal goals.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Service 1 -->
+        <div class="bg-white border border-slate-200 rounded-lg shadow-md transition duration-300 hover:shadow-lg overflow-hidden group">
+          <div class="relative h-48 overflow-hidden">
+            <!-- Using a gradient overlay instead of an external image -->
+            <div class="absolute inset-0 group-hover:opacity-100 transition duration-300"></div>
+            <div class="absolute bg-[url('./assets/car_loan.jpg')] bg-cover inset-0 flex items-center justify-center">
+              <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 md:p-8">
+            <h3 class="text-xl font-bold text-slate-800 mb-4">Car Loans</h3>
+            <p class="text-slate-600 leading-relaxed mb-5">Secure the right car loan for your needs with our expert guidance and smart comparison tools designed to match your budget, credit profile, and vehicle goals.</p>
+            <div class="pt-4 border-t border-slate-100">
+              <a href="#" class="text-blue-600 font-medium text-sm flex items-center group-hover:translate-x-2 transition-transform duration-300">
+                Learn more
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Service 2 -->
+        <div class="bg-white border border-slate-200 rounded-lg shadow-md transition duration-300 hover:shadow-lg overflow-hidden group">
+          <div class="relative h-48 overflow-hidden">
+            <!-- Using a gradient overlay instead of an external image -->
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-slate-800 opacity-90 group-hover:opacity-100 transition duration-300"></div>
+            <div class="absolute bg-[url('./assets/truck_loan.jpg')] bg-cover inset-0 flex items-center justify-center">
+              <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 md:p-8">
+            <h3 class="text-xl font-bold text-slate-800 mb-4">Truck Loans</h3>
+            <p class="text-slate-600 leading-relaxed mb-5">Drive your business forward with our tailored truck loan solutions, competitive financing options, and long-term support designed to keep you on the road.</p>
+            <div class="pt-4 border-t border-slate-100">
+              <a href="#" class="text-blue-600 font-medium text-sm flex items-center group-hover:translate-x-2 transition-transform duration-300">
+                Learn more
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Service 3 -->
+        <div class="bg-white border border-slate-200 rounded-lg shadow-md transition duration-300 hover:shadow-lg overflow-hidden group">
+          <div class="relative h-48 overflow-hidden">
+            <!-- Using a gradient overlay instead of an external image -->
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-700 to-blue-600 opacity-90 group-hover:opacity-100 transition duration-300"></div>
+            <div class="absolute inset-0 bg-[url('./assets/motorbike_loan.jpg')] bg-cover  flex items-center justify-center">
+              <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 md:p-8">
+            <h3 class="text-xl font-bold text-slate-800 mb-4">Motorbike Loans</h3>
+            <p class="text-slate-600 leading-relaxed mb-5">Hit the road with confidence through our flexible motorbike loan options, low-rate financing, and personalized support built for your riding lifestyle.</p>
+            <div class="pt-4 border-t border-slate-100">
+              <a href="#" class="text-blue-600 font-medium text-sm flex items-center group-hover:translate-x-2 transition-transform duration-300">
+                Learn more
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Service 4 -->
+        <div class="bg-white border border-slate-200 rounded-lg shadow-md transition duration-300 hover:shadow-lg overflow-hidden group">
+          <div class="relative h-48 overflow-hidden">
+            <!-- Using a gradient overlay instead of an external image -->
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-800 to-blue-500 opacity-90 group-hover:opacity-100 transition duration-300"></div>
+            <div class="absolute inset-0 bg-[url('./assets/caravan_loan.jpg')] bg-cover  flex items-center justify-center">
+              <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 md:p-8">
+            <h3 class="text-xl font-bold text-slate-800 mb-4">Caravan Loans</h3>
+            <p class="text-slate-600 leading-relaxed mb-5">Explore without limits with our tailored caravan loan solutions, featuring competitive rates, flexible terms, and expert guidance for your next great escape.</p>
+            <div class="pt-4 border-t border-slate-100">
+              <a href="#" class="text-blue-600 font-medium text-sm flex items-center group-hover:translate-x-2 transition-transform duration-300">
+                Learn more
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Service 5 -->
+        <div class="bg-white border border-slate-200 rounded-lg shadow-md transition duration-300 hover:shadow-lg overflow-hidden group">
+          <div class="relative h-48 overflow-hidden">
+            <!-- Using a gradient overlay instead of an external image -->
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-800 to-blue-700 opacity-90 group-hover:opacity-100 transition duration-300"></div>
+            <div class="absolute inset-0 bg-[url('./assets/boat_loan.jpg')] bg-cover  flex items-center justify-center">
+              <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 md:p-8">
+            <h3 class="text-xl font-bold text-slate-800 mb-4">Boat Loans</h3>
+            <p class="text-slate-600 leading-relaxed mb-5">Set sail with ease using our customized boat loan options, offering competitive rates, smooth approvals, and expert support to get you on the water faster.</p>
+            <div class="pt-4 border-t border-slate-100">
+              <a href="#" class="text-blue-600 font-medium text-sm flex items-center group-hover:translate-x-2 transition-transform duration-300">
+                Learn more
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Service 6 -->
+        <div class="bg-white border border-slate-200 rounded-lg shadow-md transition duration-300 hover:shadow-lg overflow-hidden group">
+          <div class="relative h-48 overflow-hidden">
+            <!-- Using a gradient overlay instead of an external image -->
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-700 to-slate-900 opacity-90 group-hover:opacity-100 transition duration-300"></div>
+            <div class="absolute inset-0 bg-[url('./assets/jetski_loan.jpg')] bg-cover  flex items-center justify-center">
+              <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 md:p-8">
+            <h3 class="text-xl font-bold text-slate-800 mb-4">Jetski Loans</h3>
+            <p class="text-slate-600 leading-relaxed mb-5">Make waves with our hassle-free jetski loan solutions—featuring fast approvals, flexible terms, and great rates tailored to your thrill-seeking lifestyle.</p>
+            <div class="pt-4 border-t border-slate-100">
+              <a href="#" class="text-blue-600 font-medium text-sm flex items-center group-hover:translate-x-2 transition-transform duration-300">
+                Learn more
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Services CTA -->
+      <div class="mt-16">
+        <div class="bg-white border border-slate-200 rounded-lg shadow-xl overflow-hidden">
+          <div class="grid md:grid-cols-2">
+            <!-- Left: Text content -->
+            <div class="p-8 md:p-10 flex flex-col justify-center">
+              <h3 class="text-2xl font-bold text-slate-800 mb-4">Need a customized financial solution?</h3>
+              <p class="text-slate-600 mb-6">Our team of expert financial advisors are ready to develop a tailored strategy that aligns perfectly with your unique circumstances and goals.</p>
+              <div>
+                <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded transition duration-300 shadow-md hover:shadow-lg">
+                  Schedule Personal Consultation
+                </a>
+              </div>
+            </div>
+            
+            <!-- Right: Decorative pattern -->
+            <div class="relative lg:h-[30rem] bg-slate-900 hidden md:block">
+              <!-- Grid pattern overlay -->
+              <div class="absolute inset-0 opacity-60">
+                <div class="h-full w-full bg-[url('/assets/personal_advise.jpg')] bg-cover bg-start"></div>
+              </div>
+              
+              <!-- Decorative icons/pattern -->
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-blue-300 opacity-20">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-48 w-48" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </div>
+              </div>
+              
+              <!-- Blue gradient overlay -->
+              <div class="absolute inset-0 bg-gradient-to-br from-blue-600/30 to-slate-900/20"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Stats Section -->
+
+    <section class="bg-slate-900 relative overflow-hidden" id="home">
+        <!-- Subtle grid pattern overlay -->
+        
+        
+        <!-- Accent color bar -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-blue-800"></div>
+        
+        <div class="container mx-auto px-6 lg:px-8 py-16 md:py-24 lg:py-32">
+          
+            <!-- Text Content: Takes up 3/5 of the space -->
+            <div class="lg:col-span-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <!-- Stat 1 -->
+                    <div class="p-6">
+                        <h3 class="text-white text-4xl md:text-5xl font-bold mb-2">10K+</h3>
+                        <p class="text-secondary-200">Happy Clients</p>
+                    </div>
+                    
+                    <!-- Stat 2 -->
+                    <div class="p-6">
+                        <h3 class="text-white text-4xl md:text-5xl font-bold mb-2">40+</h3>
+                        <p class="text-secondary-200">Lenders</p>
+                    </div>
+                    
+                    <!-- Stat 3 -->
+                    <div class="p-6">
+                        <h3 class="text-white text-4xl md:text-5xl font-bold mb-2">25+</h3>
+                        <p class="text-secondary-200">Years Experience</p>
+                    </div>
+                    
+                    <!-- Stat 4 -->
+                    <div class="p-6">
+                        <h3 class="text-white text-4xl md:text-5xl font-bold mb-2">100%</h3>
+                        <p class="text-secondary-200">Client Satisfaction</p>
+                    </div>
+                </div>
+          </div>
+        </div>
+        
+        <!-- Bottom border accent -->
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-800 via-blue-700 to-slate-800"></div>
+      </section>
+    
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-secondary-50" id="testimonials">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-primary-50 text-primary-600 px-4 py-1 rounded-full text-sm font-medium mb-4">Testimonials</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
+                <p class="text-secondary-600 max-w-2xl mx-auto">Hear from people who have transformed their financial future with Brokers Mutual.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-slide active bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                    <div class="text-lg text-secondary-700 mb-6 relative">
+                        <span class="absolute -top-4 -left-4 text-primary-400 text-4xl opacity-50">"</span>
+                        Brokers Mutual completely transformed how I manage my investments. Their platform is intuitive and their advisors are truly knowledgeable. I've seen a 25% growth in my portfolio since switching to their services.
+                        <span class="absolute -bottom-4 -right-4 text-primary-400 text-4xl opacity-50">"</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-primary-100">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <p class="text-secondary-500">Entrepreneur, San Francisco</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-slide bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                    <div class="text-lg text-secondary-700 mb-6 relative">
+                        <span class="absolute -top-4 -left-4 text-primary-400 text-4xl opacity-50">"</span>
+                        As a small business owner, I needed help with both personal and business finances. Brokers Mutual provided comprehensive solutions that simplified everything. Their tax optimization strategies alone saved me thousands.
+                        <span class="absolute -bottom-4 -right-4 text-primary-400 text-4xl opacity-50">"</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-primary-100">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Michael Chen</h4>
+                            <p class="text-secondary-500">Small Business Owner, Chicago</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-slide bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                    <div class="text-lg text-secondary-700 mb-6 relative">
+                        <span class="absolute -top-4 -left-4 text-primary-400 text-4xl opacity-50">"</span>
+                        The retirement planning tools are exceptional. I can visualize different scenarios and make informed decisions. My advisor took the time to understand my goals and created a personalized roadmap.
+                        <span class="absolute -bottom-4 -right-4 text-primary-400 text-4xl opacity-50">"</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-primary-100">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emily Rodriguez" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Emily Rodriguez</h4>
+                            <p class="text-secondary-500">Teacher, Miami</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slider Navigation -->
+                <div class="flex justify-center mt-8 space-x-2">
+                    <button class="slider-dot w-3 h-3 rounded-full bg-gray-300 active bg-primary-600" data-slide="0"></button>
+                    <button class="slider-dot w-3 h-3 rounded-full bg-gray-300" data-slide="1"></button>
+                    <button class="slider-dot w-3 h-3 rounded-full bg-gray-300" data-slide="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Take Control of Your Financial Future?</h2>
+            <p class="text-lg max-w-3xl mx-auto mb-10 text-secondary-200">Join thousands of satisfied clients who are already achieving their financial goals with Brokers Mutual.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#" class="bg-white text-primary-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition transform hover:-translate-y-1 shadow-lg hover:shadow-xl">Contact Us Now</a>
+                <a href="#" class="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-primary-600 transition transform hover:-translate-y-1">Schedule a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-900 text-white pt-16 pb-8" id="contact">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- Column 1 -->
+                <div>
+                    <div class="flex items-center text-2xl font-bold mb-6">
+                        <img src="./assets/logo.webp" class="filter invert brightness-0 h-12" alt="">
+                       
+                    </div>
+                    <p class="mb-6 text-secondary-300">Innovative financial solutions to secure your next loan.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-secondary-700 rounded-full flex items-center justify-center hover:bg-primary-600 transition text-secondary-300 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-secondary-700 rounded-full flex items-center justify-center hover:bg-primary-600 transition text-secondary-300 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-secondary-700 rounded-full flex items-center justify-center hover:bg-primary-600 transition text-secondary-300 hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-secondary-700 rounded-full flex items-center justify-center hover:bg-primary-600 transition text-secondary-300 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 pb-2 border-b border-secondary-700">
+                        Services
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Secure Loans</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Financial Advise</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Wealth Management</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Tax Optimization</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Estate Planning</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 pb-2 border-b border-secondary-700">
+                        Company
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">About Us</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Our Team</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Careers</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Contact Us</a></li>
+                        <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6 pb-2 border-b border-secondary-700">
+                        Contact
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-secondary-300">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary-400"></i>
+                            <span>5/6 Somerset Ave, Narellan NSW 2567</span>
+                        </li>
+                        <li class="flex items-center text-secondary-300">
+                            <i class="fas fa-phone mr-3 text-primary-400"></i>
+                            <span>(02) 4647 5666</span>
+                        </li>
+                        <li class="flex items-center text-secondary-300">
+                            <i class="fas fa-envelope mr-3 text-primary-400"></i>
+                            <span>info@Brokers Mutual.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-6 border-t border-secondary-800 text-center text-secondary-400 text-sm">
+                <p>&copy; 2023 Brokers Mutual. All rights reserved. | <a href="#" class="hover:text-primary-400 transition">Privacy Policy</a> | <a href="#" class="hover:text-primary-400 transition">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if(this.getAttribute('href') === '#') return;
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if(!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        const icon = mobileMenuButton.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+        
+        // Testimonial Slider
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const sliderDots = document.querySelectorAll('.slider-dot');
+        let currentTestimonial = 0;
+        
+        function showTestimonial(index) {
+            testimonialSlides.forEach(slide => slide.classList.remove('active'));
+            sliderDots.forEach(dot => dot.classList.remove('bg-primary-600'));
+            
+            testimonialSlides[index].classList.add('active');
+            sliderDots[index].classList.add('bg-primary-600');
+            currentTestimonial = index;
+        }
+        
+        sliderDots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const slideIndex = parseInt(this.getAttribute('data-slide'));
+                showTestimonial(slideIndex);
+            });
+        });
+        
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonialSlides.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.feature-card, .service-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animation
+        document.querySelectorAll('.feature-card, .service-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+     <script src="./js/main.js"></script>
+</body>
+</html>
